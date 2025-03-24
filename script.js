@@ -81,18 +81,18 @@ console.log(availableBooks);
 
 
 const discountedBooks = availableBooks.map(curElem => {
-   const discounted = (parseInt(curElem.price) - (parseInt(curElem.price) * 0.2))
-   return {...curElem, price: discounted.toFixed(2)}
+   const discounted = (parseInt(curElem.price.replace("€", "")) - (parseInt(curElem.price.replace("€", "")) * 0.2))
+   return {...curElem, price: discounted.toFixed(2) + "€"}
 })
 
 
 
  
 
-console.log(discountedBooks);
+console.log("discounted", discountedBooks);
 
 
-const fullPricedBook = discountedBooks.find(curElem => parseFloat(curElem.price) === parseInt(curElem.price))
+const fullPricedBook = discountedBooks.find(curElem => parseFloat(curElem.price.replace("€", "")) === parseInt(curElem.price.replace("€", "")))
 
 console.log(fullPricedBook);
 
